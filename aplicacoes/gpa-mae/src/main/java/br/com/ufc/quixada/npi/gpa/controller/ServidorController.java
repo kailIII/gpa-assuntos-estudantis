@@ -66,7 +66,7 @@ public class ServidorController {
 	}
 	
 	@RequestMapping(value = "/listar", method = RequestMethod.POST)
-	public String listarServidor(@RequestParam("siape") String siape, Model model) {
+	public String listarServidor(@RequestParam("siape") Integer siape, Model model) {
 		List<Servidor> results = new ArrayList<Servidor>();
 		results.add(servidorService.getServidorBySiape(siape));
 		model.addAttribute("servidores", results);

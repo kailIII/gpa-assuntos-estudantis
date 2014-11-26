@@ -27,7 +27,7 @@
 				<div class="form-group">
 						<label for="siape" class="col-sm-2 control-label">Siape:</label>
 						<div class="col-sm-10">
-							<form:input id="siape" path="siape" cssClass="form-control" placeholder="SIAPE do servidor"  />
+							<form:input id="siape" maxlength="7" path="siape" cssClass="form-control" placeholder="SIAPE do servidor"  />
 							<div class="error-validation">
 								<form:errors path="siape"></form:errors>
 							</div>

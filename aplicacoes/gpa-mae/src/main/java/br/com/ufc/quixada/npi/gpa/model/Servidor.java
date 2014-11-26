@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -29,7 +30,8 @@ public class Servidor {
 	private Integer id;
 	
 	@NotEmpty
-	private String siape;
+	@Size(max= 7, min=7, message="SIAPE de possuir 7 dígitos")
+	private Integer siape;
 	
 	@Enumerated(EnumType.STRING)
 	private Cargo cargo;
@@ -59,11 +61,11 @@ public class Servidor {
 		this.id = id;
 	}
 
-	public String getSiape() {
+	public Integer getSiape() {
 		return siape;
 	}
 
-	public void setSiape(String siape) {
+	public void setSiape(Integer siape) {
 		this.siape = siape;
 	}
 
@@ -93,8 +95,9 @@ public class Servidor {
 	
 	@Override
 	public String toString() {
-		return "Servidor [id=" + id + ", siape=" + siape + ", participaBancas="
-				+ participaBancas + ", responsavelBancas=" + responsavelBancas + ", pessoa="
+		return "Servidor [id=" + id + ", siape=" + siape + ", cargo=" + cargo
+				+ ", participaBancas=" + participaBancas
+				+ ", responsavelBancas=" + responsavelBancas + ", pessoa="
 				+ pessoa + "]";
 	}
 

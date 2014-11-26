@@ -12,7 +12,7 @@ public class ServidorServiceImpl extends GenericServiceImpl<Servidor> implements
 
 	
 	@Override
-	public Servidor getServidorBySiape(String siape) {
+	public Servidor getServidorBySiape(Integer siape) {
 		return findFirst("from Servidor where siape = :siape", new NamedParams("siape", siape));
 	}
 }
