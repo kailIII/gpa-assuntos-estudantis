@@ -5,7 +5,7 @@ import br.ufc.quixada.npi.service.GenericService;
 
 public interface ServidorService extends GenericService<Servidor>{
 	
-	public abstract Servidor getServidorBySiape(String siape);
+	public abstract Servidor getServidorBySiape(Integer siape);
 
 	
 
