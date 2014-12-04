@@ -11,9 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.ufc.quixada.npi.enums.Cargo;
 
@@ -29,7 +28,7 @@ public class Servidor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@NotEmpty
+	@NotNull
 	@Size(max= 7, min=7, message="SIAPE de possuir 7 dígitos")
 	private Integer siape;
 	
