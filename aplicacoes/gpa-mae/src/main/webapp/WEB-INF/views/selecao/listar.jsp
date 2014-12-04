@@ -12,6 +12,9 @@ uri="http://www.springframework.org/security/tags"%>
 <body>
 	
 	<jsp:include page="../fragments/headTag.jsp" />
+	<ol class="breadcrumb">
+      <li><a href="/MAE/selecao/listar">Listar Seleções</a></li>
+    </ol>
 	<div class="container">
 		
 		<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_COORDENADOR')">
@@ -30,7 +33,7 @@ uri="http://www.springframework.org/security/tags"%>
 					<thead>
 						<tr>
 						
-							<th>Tipo de Bolsa</th>
+							<th>Tipo de </th>
 							<th>Ano</th>
 							<th>Número do Edital</th>
 							<th>Vagas</th>
@@ -51,11 +54,11 @@ uri="http://www.springframework.org/security/tags"%>
 								
 								<td>												
 										<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_COORDENADOR')">
-										<a id="editar" href="<c:url value="/selecao/${selecao.id}/editar" ></c:url>">
-											<button class="btn btn-info">Editar <span class="glyphicon glyphicon-pencil"></span></button>
-										</a>
-						
-										<a id="excluir" data-toggle="modal" data-target="#confirm-delete" href="#" data-href="<c:url value="/selecao/${selecao.id}/excluir" ></c:url>">
+								<a id="editar" href="<c:url value="/selecao/${selecao.id}/editar" ></c:url>">
+									<button class="btn btn-info"> Editar <span class="glyphicon glyphicon-pencil"></span></button>
+								</a>
+
+								<a id="excluir" data-toggle="modal" data-target="#confirm-delete" href="#" data-href="<c:url value="/selecao/${selecao.id}/excluir" ></c:url>">
 											<button class="btn btn-danger">Excluir <span class="glyphicon glyphicon-trash"></span></button>
 										</a>
 
@@ -75,21 +78,21 @@ uri="http://www.springframework.org/security/tags"%>
 										
 										<sec:authorize access="hasAnyRole('ROLE_ALUNO')">
 										<c:if test="${selecao.tipoBolsa =='INICIACAO_ACADEMICA'}">
-										<a id="inscrever" href="<c:url value="/inscricao/iniciacaoAcademica" ></c:url>">
+										<a id="inscrever" href="<c:url value="/iniciacaoAcademica/inscricao" ></c:url>">
 											<button class=" btn btn-success">inscrever-se <span class="glyphicon glyphicon-user"></span></button>
 										</a>
 										</c:if>
 										
 										
 										<c:if test="${selecao.tipoBolsa =='AUXILIO_MORADIA'}">
-										<a id="inscrever" href="<c:url value="/inscricao/auxilio/" ></c:url>">
+										<a id="inscrever" href="<c:url value="/auxilio/inscricao/" ></c:url>">
 											<button class=" btn btn-success">inscrever-se <span class="glyphicon glyphicon-user"></span></button>
 										</a>
 										</c:if>
 										</sec:authorize>
 										<sec:authorize access="isAnonymous()">
 										
-										<a id="informacoes" href="<c:url value="/selecao/${selecao.id}/informacoes/" ></c:url>">
+										<a id="informacoes" href="<c:url value="/selecao/${selecao.id}/informacoes"></c:url>">
 											<button class=" btn btn-success">+ Informações <span class="glyphicon glyphicon-zoom-in"></span></button>
 										</a>
 										</sec:authorize>

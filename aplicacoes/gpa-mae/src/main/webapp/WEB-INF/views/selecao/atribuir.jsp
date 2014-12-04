@@ -14,8 +14,17 @@
 
 <body>
 	<jsp:include page="../fragments/headTag.jsp" />
-
+<ol class="breadcrumb">
+      <li><a href="/MAE/selecao/listar">Listar Seleções</a></li>
+      <li class="active">Atribuir Membro Banca</li>
+    </ol>
 	<div class="container">
+		<c:if test="${not empty erro}">
+			<div class="alert alert-danger alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<c:out value="${erro}"></c:out>
+			</div>
+		</c:if>
 		<div class="atribuirBanca" align="center">
 			<div class="form" align="center">
 				<h2>Atribuir Membros da Banca</h2>
@@ -28,19 +37,19 @@
 						<div class="col-sm-4">
 							<select name="id1" class="form-control">
 								<c:forEach items="${servidores}" var="servidor">
-									<option value="${servidor.id}">${servidor.usuario.nome}</option>
+									<option value="${servidor.id}">${servidor.pessoa.nome}</option>
 								</c:forEach>
 							</select>
 							<label for="servidor" class="col-sm-2 control-label">Parecerista:</label>
 							<select name="id2" class="form-control">
 								<c:forEach items="${servidores}" var="servidor">
-									<option value="${servidor.id}">${servidor.usuario.nome}</option>
+									<option value="${servidor.id}">${servidor.pessoa.nome}</option>
 								</c:forEach>
 							</select>
 							<label for="servidor" class="col-sm-2 control-label">Parecerista:</label>
 							<select name="id3" class="form-control">
 								<c:forEach items="${servidores}" var="servidor">
-									<option value="${servidor.id}">${servidor.usuario.nome}</option>
+									<option value="${servidor.id}">${servidor.pessoa.nome}</option>
 								</c:forEach>
 							</select>
 					
@@ -62,5 +71,4 @@
 	<jsp:include page="../fragments/footer.jsp"></jsp:include>
 
 </body>
-
 </html>
