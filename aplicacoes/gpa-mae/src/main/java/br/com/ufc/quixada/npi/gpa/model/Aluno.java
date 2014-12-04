@@ -3,6 +3,7 @@ package br.com.ufc.quixada.npi.gpa.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -19,8 +18,8 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = { "matricula" }))
 public class Aluno {
 	
 	public Aluno() {}
@@ -30,6 +29,7 @@ public class Aluno {
 	private Integer id;
 
 	@NotEmpty
+	@Column(unique = true)
 	private String matricula;
 	
 	@ManyToMany(mappedBy="alunosSelecao")

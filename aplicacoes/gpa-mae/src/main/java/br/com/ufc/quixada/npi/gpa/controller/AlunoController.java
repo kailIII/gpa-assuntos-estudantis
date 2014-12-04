@@ -42,11 +42,12 @@ public class AlunoController {
 		if (result.hasErrors()) {
 			return ("aluno/cadastrar");
 		}
-		
-		this.alunoService.save(aluno);
-		this.alunoService.update(aluno);
-		redirect.addFlashAttribute("info", "Aluno cadastrado com sucesso.");
-
+		try{
+			this.alunoService.save(aluno);
+			redirect.addFlashAttribute("info", "Aluno cadastrado com sucesso.");
+		}catch(Exception x){
+			redirect.addFlashAttribute("info", "Aluno já existe");
+		}
 		return "redirect:/aluno/listar";
 
 	}
